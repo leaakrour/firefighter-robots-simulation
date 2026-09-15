@@ -1,0 +1,31 @@
+plugins {
+    id 'application'
+}
+
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation project(':app.data')
+    runtimeOnly project(':carteParDefaut')
+    runtimeOnly project(':app.ai')
+    implementation ':gui'
+}
+
+java {
+    modularity.inferModulePath = true
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(15)
+    }
+}
+
+application {
+    mainClass = 'org.app.Main'
+    mainModule = 'app.main'
+}

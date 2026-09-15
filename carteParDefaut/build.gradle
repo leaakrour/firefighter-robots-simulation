@@ -1,0 +1,27 @@
+plugins {
+    id 'java-library'
+}
+
+apply plugin: 'eclipse'
+
+dependencies {
+    implementation project(':app.data')
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation ':gui'
+}
+
+java {
+    modularity.inferModulePath = true
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(15)
+    }
+}
+

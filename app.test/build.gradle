@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation project(':app.data')
+    testImplementation project(':carteParDefaut')
+    testImplementation project(':app')
+    testImplementation ':gui'
+}
+
+java {
+    modularity.inferModulePath = true
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(15)
+    }
+}
+
+test {
+    useJUnitPlatform()
+    
+    testLogging.showStandardStreams = true
+    
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
