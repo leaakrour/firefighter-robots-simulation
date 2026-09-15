@@ -27,11 +27,13 @@ Java · Gradle · Custom GUI simulator (provided by course staff)
 
 ## Project structure
 
+```
 app/ → Main entry point & simulator
 app.data/ → Core domain classes (Robot, Carte, Incendie, events...)
 app.ai/ → Fire chief strategies & path-finding
 app.test/ → Test scenarios
 carteParDefaut/ → Predefined map configurations
+```
 
 ## Running the project
 
